@@ -1,6 +1,11 @@
 import java.util.Scanner;
 
 public class Strings{
+    public static void printLetters(String fullName){
+        for(int i=0;i<fullName.length();i++){
+            System.out.print(fullName.charAt(i) + " ");
+        }
+    }
     public static void main(String[] args) {
         char arr[] = {'a','b','c','d'};
         String str  = "abcd";
@@ -28,6 +33,9 @@ public class Strings{
         String fullNames = firstName + " " + lastName;
 
         System.out.println(fullNames);
+        System.out.println(fullNames.charAt(0));
+
+        printLetters(fullNames);
 
         sc.close();
     }
