@@ -4,37 +4,28 @@
 
 public class MaxSubarraySum {
     public static int printMaxSum(int arrays[]){
-        // int maxSum = Integer.MIN_VALUE;
-        // int currSum = 0;
-        // for(int i=0;i<arrays.length;i++){
-        //     //Kadane's Algorithm
-        //     currSum = currSum + arrays[i];
-        //     if(currSum < 0){
-        //         currSum = 0;
-        //     }
-        //     maxSum = Math.max(currSum,maxSum);
-        // }
-        // return maxSum;
-        
-        int n = arrays.length;
-        int currSum = 0;
+        int len = arrays.length;
         int maxSum = Integer.MIN_VALUE;
+        int prefix[] = new int[len];
 
-        for(int i=0;i<n;i++){
+        prefix[0] = arrays[0];
+        for(int i=1;i<len;i++){
+            prefix[i] = prefix[i-1] + arrays[i];
+        }
+
+        for(int i=0;i<len;i++){
             int start = i;
-            for(int j=i;j<n;j++){
+            for(int j = i;j<len;j++){
                 int end = j;
-                currSum = 0;
-                for(int k=start;k<=end;k++){
-                    currSum = currSum + arrays[k];
-                }
+
+                int currSum = start == 0 ? prefix[end] : prefix[end] - prefix[start - 1];
+
                 if(maxSum<currSum){
                     maxSum = currSum;
                 }
             }
-           
         }
-         
+
         return maxSum;
     }
     public static void main(String[] args) {
