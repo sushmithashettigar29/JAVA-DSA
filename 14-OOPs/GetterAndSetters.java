@@ -1,5 +1,3 @@
-
-
 public class GetterAndSetters {
     public static void main(String[] args) {
         Pen pen1 = new Pen();
