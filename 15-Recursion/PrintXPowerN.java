@@ -12,7 +12,7 @@ public class PrintXPowerN {
         int halfPower = optimizedPower(x, n/2);
         int halfPowerSq = halfPower * halfPower;
 
-        // n is odd
+        // n is odd 
         if(n % 2 != 0){
             halfPowerSq = x * halfPowerSq;
         }
