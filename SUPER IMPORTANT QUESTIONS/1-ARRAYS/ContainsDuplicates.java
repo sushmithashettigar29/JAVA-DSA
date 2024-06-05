@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Arrays;
 
 public class ContainsDuplicates {
     public static boolean checkDuplicates(int nums[]){
