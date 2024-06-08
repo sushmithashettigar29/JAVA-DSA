@@ -1,4 +1,4 @@
-public class NQueens {
+public class NQueens_all_ways {
     public static void nQueens(char board[][],int row){
 
         //base case
