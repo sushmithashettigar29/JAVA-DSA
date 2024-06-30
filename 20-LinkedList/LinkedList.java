@@ -156,34 +156,114 @@ public class LinkedList {
         head = prev;
     }
 
+    public void deleteNthFromEnd(int n){
+        //calculate size
+        int sz = 0;
+        Node temp = head;
+        while(temp != null){
+            temp = temp.next;
+            sz++;
+        }
+
+        if(n == sz){
+            head = head.next; //remove first
+            return;
+        }
+
+        //size - n
+        int i = 1;
+        int iToFind = sz-n;
+        Node prev = head;
+        while(i<iToFind){
+            prev = prev.next;
+            i++;
+        }
+
+        prev.next = prev.next.next;
+        return;
+    }
+
+    //slow-fast approach
+    public Node findMid(Node head){ //helper function
+        Node slow = head;
+        Node fast = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next ; //+1
+            fast = fast.next.next ; //+2
+        }
+
+        return slow;  // slow is my mid
+    }
+
+    public boolean checkPalindrome(){
+        if(head == null || head.next == null){
+            return true;
+        }
+        //step 1 - find mid
+        Node midNode = findMid(head);
+
+        //step 2 - reverse 2nd half
+        Node prev = null;
+        Node curr = midNode;
+        Node next;
+
+        while(curr != null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+
+        Node right = prev;//right half head
+        Node left = head;
+
+        //step 3 - check left half == right half
+        while(right != null){
+            if(left.data != right.data){
+                return false;
+            }
+            left = left.next;
+            right = right.next;
+        }
+
+        return true;
+    }
+
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
         // ll.head = new Node(1);
         // ll.head.next = new Node(2);
-        ll.print();
-        ll.addFirst(1);
-        ll.print();
+        // ll.print();
         ll.addFirst(2);
-        ll.print();
-        ll.addLast(3);
-        ll.print();
+        // ll.print();
+        ll.addFirst(1);
+        // ll.print();
+        ll.addFirst(2);
         ll.addLast(4);
-        ll.print();
-        ll.add(2,9);
-        ll.print();
-        System.out.println(LinkedList.size);  //ll.size;  used LinkedList.size bcz to remove error in vscode
+        // ll.print();
+        ll.addLast(5);
+        // ll.print();
+        ll.add(2,3);
+        // ll.print();
+        // System.out.println(LinkedList.size);  //ll.size;  used LinkedList.size bcz to remove error in vscode
 
-        ll.removeFirst();
-        ll.print();
-        ll.removeLast();
-        ll.print();
-        System.out.println(LinkedList.size); 
+        // ll.removeFirst();
+        // ll.print();
+        // ll.removeLast();
+        // ll.print();
+        // System.out.println(LinkedList.size); 
 
-        System.out.println(ll.itrSearch(3));
-        System.out.println(ll.recSearch(3));
+        // System.out.println(ll.itrSearch(3));
+        // System.out.println(ll.recSearch(3));
 
-        ll.print();
-        ll.reverse();
-        ll.print();
+        // ll.print();
+        // ll.reverse();
+        // ll.print();
+
+        // ll.deleteNthFromEnd(3);
+        // ll.print();
+
+        // System.out.println(ll.checkPalindrome());
     }
 }
