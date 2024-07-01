@@ -230,21 +230,37 @@ public class LinkedList {
         return true;
     }
 
+    public static  boolean isCycle(){//Floyd's cycle algorithm
+        Node slow = head;
+        Node fast = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public static void main(String[] args) {
-        LinkedList ll = new LinkedList();
+        // LinkedList ll = new LinkedList();
         // ll.head = new Node(1);
         // ll.head.next = new Node(2);
+
         // ll.print();
-        ll.addFirst(2);
+        // ll.addFirst(2);
         // ll.print();
-        ll.addFirst(1);
+        // ll.addFirst(1);
         // ll.print();
-        ll.addFirst(2);
-        ll.addLast(4);
+        // ll.addFirst(2);
+        // ll.addLast(4);
         // ll.print();
-        ll.addLast(5);
+        // ll.addLast(5);
         // ll.print();
-        ll.add(2,3);
+        // ll.add(2,3);
         // ll.print();
         // System.out.println(LinkedList.size);  //ll.size;  used LinkedList.size bcz to remove error in vscode
 
@@ -265,5 +281,13 @@ public class LinkedList {
         // ll.print();
 
         // System.out.println(ll.checkPalindrome());
+
+        head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(3);
+        head.next.next.next = head;
+        //1->2->3->1
+
+        System.out.println(isCycle());
     }
 }
