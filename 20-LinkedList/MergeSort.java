@@ -66,7 +66,7 @@ public class MergeSort { //TC = )(nlogn)
             }
         }
 
-        while(head1!= null){
+        while(head1 != null){
             temp.next = head1;
             head1 = head1.next;
             temp = temp.next;
@@ -96,12 +96,12 @@ public class MergeSort { //TC = )(nlogn)
     }
     public static void main(String[] args) {
         MergeSort ll = new MergeSort();
-        ll.addFirst(1);
-        ll.addFirst(2);
-        ll.addFirst(3);
         ll.addFirst(4);
-        ll.addFirst(5);
-        //5->4->3->2->1
+        ll.addFirst(3);
+        ll.addFirst(1);
+        ll.addFirst(4);
+        ll.addFirst(2);
+        ll.addFirst(1);
 
         ll.print();
         ll.head = ll.mergeSort(ll.head);
