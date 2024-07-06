@@ -1,5 +1,5 @@
 
-public class MergeSort { //TC = )(nlogn)
+public class MergeSortLL { //TC = )(nlogn)
     public static class Node {
         int data;
         Node next;
@@ -95,7 +95,7 @@ public class MergeSort { //TC = )(nlogn)
         return merge(newLeft,newRight);
     }
     public static void main(String[] args) {
-        MergeSort ll = new MergeSort();
+        MergeSortLL ll = new MergeSortLL();
         ll.addFirst(4);
         ll.addFirst(3);
         ll.addFirst(1);
@@ -103,8 +103,8 @@ public class MergeSort { //TC = )(nlogn)
         ll.addFirst(2);
         ll.addFirst(1);
 
-        ll.print();
-        ll.head = ll.mergeSort(ll.head);
-        ll.print();
+        // ll.print();
+        // ll.head = ll.mergeSort(ll.head);
+        // ll.print();
     }
 }
