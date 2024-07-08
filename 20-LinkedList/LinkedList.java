@@ -322,8 +322,7 @@ public class LinkedList {
         System.out.println(isCycle());
     }
 
-    public LinkedList.Node mergesort(LinkedList.Node head2) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mergesort'");
-    }
+    // public LinkedList.Node mergesort(LinkedList.Node head2) {
+    //     throw new UnsupportedOperationException("Unimplemented method 'mergesort'");
+    // }
 }
